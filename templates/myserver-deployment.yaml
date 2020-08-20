@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: 'my-server'
+  labels:
+    app: my-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-server
+  template:
+    metadata:
+      labels:
+         app: my-server
+    spec:
+      containers:
+      - image: nimrodf/hamusmidbar
+        name: myserver
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        env: 
+        - name: d_host 
+          value: mysql-service
+        
