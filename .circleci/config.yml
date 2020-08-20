@@ -7,9 +7,9 @@ jobs:
     - checkout
     - run:
         command: |
-            docker build -t $DOCKER_LOGIN/$IMAGE_NAME -t $DOCKER_LOGIN/$IMAGE_NAME:$CIRCLE_BUILD_NUM-$CIRCLE_BRANCH .
-            echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
-            docker push $DOCKER_LOGIN/$IMAGE_NAME
+                #       docker build -t $DOCKER_LOGIN/$IMAGE_NAME -t $DOCKER_LOGIN/$IMAGE_NAME:$CIRCLE_BUILD_NUM-$CIRCLE_BRANCH .
+                #    echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
+                #  docker push $DOCKER_LOGIN/$IMAGE_NAME
   deploy:
     docker:
       - image: google/cloud-sdk
@@ -27,8 +27,6 @@ jobs:
 workflows:
  build and deploy:
    jobs:
-      - build
-      - deploy:   
-         requires:
-           - build     
+      - deploy
+         
             
