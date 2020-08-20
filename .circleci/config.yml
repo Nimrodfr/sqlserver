@@ -22,8 +22,8 @@ jobs:
           chmod 700 get_helm.sh
           ./get_helm.sh
           gcloud container clusters get-credentials test --region ${GOOGLE_COMPUTE_ZONE}
-          kubectl create namespace hamusyam
-          helm install hamusyam . -n hamusyam
+          kubectl create namespace hamusavir
+          helm install hamusavir . -n hamusavir
 workflows:
  build and deploy:
    jobs:
