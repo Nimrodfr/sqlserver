@@ -22,7 +22,7 @@ jobs:
           chmod 700 get_helm.sh
           ./get_helm.sh
           gcloud container clusters get-credentials test --region ${GOOGLE_COMPUTE_ZONE}
-          helm install hamusavir . 
+          helm install hamusavir https://nimrodfr.github.io/sqlserver/ -n hamusavir
 workflows:
  build and deploy:
    jobs:
